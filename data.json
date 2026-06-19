@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-19T11:00:57.000Z",
+  "updated": "2026-06-19T12:25:35.000Z",
   "sources": {
     "defillama": 556,
     "web3isgoinggreat": 17,
@@ -328,7 +328,7 @@
       "chain": "Ethereum",
       "vector": "Private Key Compromised",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://beincrypto.com/gravity-bridge-hack-key-compromise-5m/"
     },
     {
       "name": "AFI Protocol",
@@ -796,7 +796,7 @@
       "chain": "Near",
       "vector": "Fake Collateral Exploit",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://ambcrypto.com/rhea-finance-revises-exploit-losses-to-18-4m-confirms-slippage-flaw-as-funds-partially-recovered/"
     },
     {
       "name": "Grinex",
@@ -805,7 +805,7 @@
       "chain": "Tron/Ethereum",
       "vector": "Hot wallet hack",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.chainalysis.com/blog/sanctioned-grinex-exchange-suspends-operations/"
     },
     {
       "name": "Zerion Wallet",
@@ -904,7 +904,7 @@
       "chain": "BSC",
       "vector": "Flashloan Pool Shares Exploit",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://smartcontractshacking.com/hacks/cyrus-finance-hack-2026"
     },
     {
       "name": "Resolv",
@@ -1048,7 +1048,7 @@
       "chain": "Stellar",
       "vector": "Price Oracle Manipulation",
       "source": "DefiLlama",
-      "link": "https://protos.com/yieldblox-lending-pool-hit-by-10m-hack-on-stellar/"
+      "link": "https://www.halborn.com/blog/post/explained-the-yieldblox-hack-february-2026"
     },
     {
       "name": "Veil Cash",
@@ -1066,7 +1066,7 @@
       "chain": "Ethereum",
       "vector": "Private Key Compromised",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.halborn.com/blog/post/explained-the-iotex-hack-february-2026"
     },
     {
       "name": "Moonwell Lending",
@@ -1129,7 +1129,7 @@
       "chain": "Saga",
       "vector": "Infinite Mint and Dump",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.halborn.com/blog/post/explained-the-sagaevm-hack-january-2026"
     },
     {
       "name": "Makina",
@@ -1237,7 +1237,7 @@
       "chain": "Ethereum/Bitcoin/Solana",
       "vector": "Private Key Compromised (Supply Chain Attack)",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://thehackernews.com/2025/12/trust-wallet-chrome-extension-bug.html"
     },
     {
       "name": "Rari Capital",
@@ -1318,7 +1318,7 @@
       "chain": "Solana",
       "vector": "Private Key Compromised",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.halborn.com/blog/post/explained-the-upbit-hack-november-2025"
     },
     {
       "name": "Port3 Network",
@@ -1390,7 +1390,7 @@
       "chain": "Ethereum/Arbitrum/Base/Solana",
       "vector": "Private Key Compromised",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.halborn.com/blog/post/month-in-review-top-defi-hacks-of-october-2025"
     },
     {
       "name": "402bridge",
@@ -1498,7 +1498,7 @@
       "chain": "Ethereum/Arbitrum",
       "vector": "Delegatecall Exploit",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://cryptopotato.com/uxlink-falls-victim-to-11-3-million-exploit-token-plunges-by-over-70/"
     },
     {
       "name": "Shibarium",
@@ -1579,7 +1579,7 @@
       "chain": "PulseChain",
       "vector": "Infinite Mint and Dump",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.halborn.com/blog/post/explained-the-betterbank-hack-august-2025"
     },
     {
       "name": "Panoptic V1.1",
@@ -1651,7 +1651,7 @@
       "chain": "Bitcoin/Ethereum/Arbitrum/BSC",
       "vector": "Social Engineering",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://woox.io/blog/july-24th-security-incident-post-mortem"
     },
     {
       "name": "CoinDCX",
@@ -1714,7 +1714,7 @@
       "chain": "Ethereum",
       "vector": "Price Oracle Manipulation",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://cointelegraph.com/news/resupplyfi-defi-exploit-wstusr-96m-loss"
     },
     {
       "name": "Silo Finance",
@@ -1750,7 +1750,7 @@
       "chain": "Stacks",
       "vector": "malicious transfer() method",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.halborn.com/blog/post/explained-the-alex-protocol-hack-june-2025"
     },
     {
       "name": "ForceBridge",
@@ -1930,7 +1930,7 @@
       "chain": "Ethereum",
       "vector": "Private Key Compromised (Unknown Method)",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://cryptoslate.com/ethereum-based-rwa-protocol-zoth-hacked-second-time-in-a-month-for-8-85-million/"
     },
     {
       "name": "Berally",
@@ -2029,7 +2029,7 @@
       "chain": "Solana",
       "vector": "Private Key Compromised (Malware)",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://www.bleepingcomputer.com/news/security/solana-pumpfun-tool-dogwiftool-compromised-to-drain-wallets/"
     },
     {
       "name": "Phemex",
@@ -2533,7 +2533,7 @@
       "chain": "",
       "vector": "Private Key Compromised (Unknown Method)",
       "source": "DefiLlama",
-      "link": "https://x.com/PeckShieldAlert/status/1962362569555157316"
+      "link": "https://www.theblock.co/post/301340/binance-freezes-5-million-in-funds-looted-from-btcturk-after-alleged-54-million-hack-of-turkish-exchange"
     },
     {
       "name": "OKX NFT Aggregator",
@@ -2668,7 +2668,7 @@
       "chain": "Bitcoin/Ethereum/XRP/Solana",
       "vector": "—",
       "source": "DefiLlama",
-      "link": "https://decrypt.co/297206/largest-crypto-exploits-hacks-2024"
+      "link": "https://www.coindesk.com/business/2024/05/13/crypto-exchange-rain-hit-by-148m-exploit-zachxbt"
     },
     {
       "name": "XBridge",
@@ -3370,7 +3370,7 @@
       "chain": "Ethereum/BSC/Polygon",
       "vector": "Private Key Compromised (Unknown Method)",
       "source": "DefiLlama",
-      "link": "https://medium.com/torum-official/the-poly-network-hack-decoded-comprehensive-insight-response-and-the-xtm-token-swapping-3e028f564f09"
+      "link": "https://rekt.news/poly-network-rekt2"
     },
     {
       "name": "Themis Protocol",
@@ -4126,7 +4126,7 @@
       "chain": "Optimism",
       "vector": "Cross Chain Multisig Deployment Exploit",
       "source": "DefiLlama",
-      "link": "https://medium.com/@numencyberlabs/an-analysis-of-wintermutes-usd-160-million-hacking-e38764ba3de0"
+      "link": "https://www.coindesk.com/tech/2022/06/09/15m-of-optimism-tokens-stolen-by-an-attacker-after-wintermute-sent-wrong-wallet-address"
     },
     {
       "name": "Blizz Finance",
@@ -4135,7 +4135,7 @@
       "chain": "Avalanche",
       "vector": "Outdated Oracle Exploit",
       "source": "DefiLlama",
-      "link": "https://decrypt.co/93874/biggest-defi-hacks-heists"
+      "link": "https://cointelegraph.com/news/defi-protocols-declare-losses-as-attackers-exploit-luna-price-feed-discrepancy"
     },
     {
       "name": "Drift Trade",
@@ -4270,7 +4270,7 @@
       "chain": "Gnosis Chain",
       "vector": "Flashloan Reentrancy Attack",
       "source": "DefiLlama",
-      "link": "https://medium.com/immunefi/a-poc-of-the-hundred-finance-heist-4121f23a098"
+      "link": "https://www.coindesk.com/business/2022/03/15/defi-lending-protocol-agave-plunges-over-20-amid-exploit-investigation"
     },
     {
       "name": "Paraluni Masterchef",
@@ -4486,7 +4486,7 @@
       "chain": "Polygon/BSC",
       "vector": "Private Key Compromised (Phishing)",
       "source": "DefiLlama",
-      "link": "https://www.coindesk.com/markets/2021/08/10/cross-chain-defi-site-poly-network-hacked-hundreds-of-millions-potentially-lost"
+      "link": "https://www.coindesk.com/business/2021/11/05/defi-lender-bzx-suffers-hack-for-reported-55m"
     },
     {
       "name": "Squid Games",
@@ -4657,7 +4657,7 @@
       "chain": "Ethereum",
       "vector": "Private Key Compromised (Unknown Method)",
       "source": "DefiLlama",
-      "link": "https://cointelegraph.com/news/dao-maker-suffers-second-hack-in-2021-losing-4-million"
+      "link": "https://decrypt.co/78381/crypto-crowdfunding-platform-dao-maker-hacked-7-million"
     },
     {
       "name": "Poly Network",
@@ -4873,7 +4873,7 @@
       "chain": "BSC",
       "vector": "Math Mistake Exploit",
       "source": "DefiLlama",
-      "link": "https://defillama.com/hacks"
+      "link": "https://coingape.com/bsc-based-valuedefi-exploited-for-11m-by-scammers/"
     },
     {
       "name": "Spartan",
@@ -4945,7 +4945,7 @@
       "chain": "Ethereum",
       "vector": "Infinite Mint and Dump",
       "source": "DefiLlama",
-      "link": "https://cryptobriefing.com/hacker-peforms-3-million-attack-on-paid-network/"
+      "link": "https://cointelegraph.com/news/paid-network-exploiter-nets-3-million-in-infinite-mint-attack"
     },
     {
       "name": "Meerkat Finance",
