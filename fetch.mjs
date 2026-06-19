@@ -273,7 +273,7 @@ async function fetchSlowMist() {
 function loadExistingLinks() {
   try {
     const html = readFileSync("index.html", "utf8");
-    const match = html.match(/window\.__DATA__\s*=\s*(\{[\s\S]*?\});\s*<\/script>/);
+    const match = html.match(/window\.__DATA__\s*=\s*(\{[\s\S]*\});\s*<\/script>/);
     if (!match) return new Map();
     const data = JSON.parse(match[1]);
     const map = new Map();
@@ -310,7 +310,7 @@ async function main() {
       if (saved) { inc.link = saved; restored++; }
     }
   }
-  if (restored) console.log(`Restored ${restored} backfilled links from previous data.js`);
+  if (restored) console.log(`Restored ${restored} backfilled links from previous index.html`);
 
   const output = {
     updated: new Date().toISOString(),
@@ -324,7 +324,7 @@ async function main() {
 
   const html = readFileSync("index.html", "utf8");
   const injected = html.replace(
-    /<script>window\.__DATA__[^<]*<\/script>/,
+    /<script>window\.__DATA__[\s\S]*?<\/script>/,
     `<script>window.__DATA__ = ${JSON.stringify(output)};</script>`
   );
   writeFileSync("index.html", injected);
