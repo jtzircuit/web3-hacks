@@ -10,9 +10,9 @@ Fork this repo, then:
 
 ```bash
 npm install
-node fetch.mjs   # generate initial data.js
-git add data.js
-git commit -m "init: generate data.js"
+node fetch.mjs   # fetches data and embeds it into index.html
+git add index.html
+git commit -m "init: generate index.html with data"
 git push
 ```
 
@@ -26,9 +26,9 @@ That's it. The workflow runs every 30 minutes and auto-commits updated data.
 
 | file | role |
 |------|------|
-| `fetch.mjs` | Fetches all three sources, fuzzy-dedupes, writes `data.js` |
-| `.github/workflows/refresh.yml` | Runs `fetch.mjs` every 30 min, commits the result |
-| `index.html` | Reads `data.js` (embedded as a script tag), renders the list |
+| `fetch.mjs` | Fetches all three sources, fuzzy-dedupes, injects data into `index.html` |
+| `.github/workflows/refresh.yml` | Runs `fetch.mjs` every 30 min, commits `index.html` |
+| `index.html` | Self-contained — data is embedded directly, opens without a server |
 
 ## sources
 
