@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 import { parseStringPromise } from "xml2js";
 
 // ---------------------------------------------------------------------------
@@ -272,7 +272,10 @@ async function fetchSlowMist() {
 
 function loadExistingLinks() {
   try {
-    const data = JSON.parse(readFileSync("data.json", "utf8"));
+    const raw = existsSync("data.js")
+      ? readFileSync("data.js", "utf8").replace(/^window\.__DATA__\s*=\s*/, "").replace(/;?\s*$/, "")
+      : readFileSync("data.json", "utf8");
+    const data = JSON.parse(raw);
     const map = new Map();
     for (const inc of data.incidents || []) {
       if (inc.link && inc.link !== "https://defillama.com/hacks") {
@@ -307,7 +310,7 @@ async function main() {
       if (saved) { inc.link = saved; restored++; }
     }
   }
-  if (restored) console.log(`Restored ${restored} backfilled links from previous data.json`);
+  if (restored) console.log(`Restored ${restored} backfilled links from previous data.js`);
 
   const output = {
     updated: new Date().toISOString(),
@@ -319,8 +322,8 @@ async function main() {
     incidents,
   };
 
-  writeFileSync("data.json", JSON.stringify(output, null, 2));
-  console.log(`\nWrote data.json with ${incidents.length} incidents`);
+  writeFileSync("data.js", `window.__DATA__ = ${JSON.stringify(output, null, 2)};\n`);
+  console.log(`\nWrote data.js with ${incidents.length} incidents`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

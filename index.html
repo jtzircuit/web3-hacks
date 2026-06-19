@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'">
 <title>web3 hack tracker</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -150,6 +150,7 @@
     .stats { gap: 1.2rem; flex-wrap: wrap; }
   }
 </style>
+<script src="data.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -341,29 +342,24 @@ function toggleSort() {
 // Data loading
 // ---------------------------------------------------------------------------
 
-async function load() {
-  try {
-    const res = await fetch("data.json?t=" + Date.now());
-    if (!res.ok) throw new Error("data.json not found — has the workflow run yet?");
-    const data = await res.json();
-
-    allIncidents = data.incidents || [];
-    const fetched = new Date(data.updated);
-    $("upd").textContent = "updated " + fetched.toLocaleDateString([], { month: "short", day: "numeric" });
-    if (data.sources) {
-      $("srcs").textContent = Object.entries(data.sources).map(([k, v]) => `${k} (${v})`).join(" · ");
-    }
-
-    renderYears(allIncidents);
-    applyFilters();
-  } catch (e) {
-    $("list").innerHTML = `<div class="empty">${esc(e.message)}</div>`;
-    $("msg").textContent = "error loading data.json";
+function load() {
+  const data = window.__DATA__;
+  if (!data) {
+    $("list").innerHTML = `<div class="empty">data.js not found — run node fetch.mjs first</div>`;
+    return;
   }
+
+  allIncidents = data.incidents || [];
+  $("upd").textContent = "updated " + new Date(data.updated).toLocaleDateString([], { month: "short", day: "numeric" });
+  if (data.sources) {
+    $("srcs").textContent = Object.entries(data.sources).map(([k, v]) => `${k} (${v})`).join(" · ");
+  }
+
+  renderYears(allIncidents);
+  applyFilters();
 }
 
 load();
-setInterval(load, 5 * 60 * 1000);
 </script>
 </body>
 </html>
