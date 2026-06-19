@@ -287,6 +287,43 @@ function loadExistingLinks() {
   } catch { return new Map(); }
 }
 
+// Manual merge overrides for incidents that escape fuzzy dedup due to large
+// date gaps between sources. Each entry maps a duplicate (name+date from one
+// source) onto a canonical (name+date from another). The duplicate is dropped
+// and its source/link are merged into the canonical.
+const MANUAL_MERGES = [
+  // DefiLlama reports the hack date; web3isgoinggreat reports the article date
+  { dup: { name: "Gravity Bridge drained of $5.4 million", date: "2026-06-15" }, canonical: { name: "Gravity Bridge", date: "2026-05-30" } },
+  { dup: { name: "DxSale exploited for $7.3 million",      date: "2026-06-15" }, canonical: { name: "DxSale",         date: "2026-05-28" } },
+  { dup: { name: "Humanity Protocol loses $36 million to employee laptop compromise", date: "2026-06-15" }, canonical: { name: "Humanity", date: "2026-06-08" } },
+];
+
+function applyManualMerges(incidents) {
+  const byKey = new Map(incidents.map(i => [`${i.name}|${i.date}`, i]));
+  const toRemove = new Set();
+
+  for (const { dup, canonical } of MANUAL_MERGES) {
+    const dupInc = byKey.get(`${dup.name}|${dup.date}`);
+    const canInc = byKey.get(`${canonical.name}|${canonical.date}`);
+    if (!dupInc || !canInc) continue;
+
+    // Merge source tags
+    const sources = new Set([...canInc.source.split(" · "), ...dupInc.source.split(" · ")]);
+    canInc.source = [...sources].join(" · ");
+
+    // Fill any gaps from the dup
+    if (canInc.amount == null && dupInc.amount != null) canInc.amount = dupInc.amount;
+    if ((!canInc.chain  || canInc.chain  === "—") && dupInc.chain  && dupInc.chain  !== "—") canInc.chain  = dupInc.chain;
+    if ((!canInc.vector || canInc.vector === "—") && dupInc.vector && dupInc.vector !== "—") canInc.vector = dupInc.vector;
+
+    toRemove.add(`${dup.name}|${dup.date}`);
+  }
+
+  const result = incidents.filter(i => !toRemove.has(`${i.name}|${i.date}`));
+  if (toRemove.size) console.log(`Applied ${toRemove.size} manual merge(s)`);
+  return result;
+}
+
 async function main() {
   const existingLinks = loadExistingLinks();
 
@@ -298,7 +335,7 @@ async function main() {
 
   const all = [...llamaRows, ...w3iggRows, ...slowmistRows];
   console.log(`\nTotal before dedup: ${all.length}`);
-  const incidents = mergeAndDedupe(all);
+  const incidents = applyManualMerges(mergeAndDedupe(all));
   console.log(`Total after dedup:  ${incidents.length}`);
 
   // Restore backfilled links that the live sources don't carry
