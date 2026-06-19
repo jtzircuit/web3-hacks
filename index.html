@@ -349,7 +349,7 @@ async function load() {
 
     allIncidents = data.incidents || [];
     const fetched = new Date(data.updated);
-    $("upd").textContent = "updated " + fetched.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    $("upd").textContent = "updated " + fetched.toLocaleDateString([], { month: "short", day: "numeric" });
     if (data.sources) {
       $("srcs").textContent = Object.entries(data.sources).map(([k, v]) => `${k} (${v})`).join(" · ");
     }
