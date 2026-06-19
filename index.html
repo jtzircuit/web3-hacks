@@ -380,6 +380,97 @@ function load() {
 }
 
 load();
+
+// Click burst
+(function() {
+  const SYMBOLS = ['$', '₿', '⚠', '0', '1'];
+
+  document.addEventListener('click', e => {
+    const count = 12;
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('div');
+      const angle = (i / count) * Math.PI * 2;
+      const dist  = 40 + Math.random() * 40;
+      const dx    = Math.cos(angle) * dist;
+      const dy    = Math.sin(angle) * dist;
+      const sym   = Math.random() > 0.5 ? SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)] : '·';
+      const size  = sym === '·' ? 4 : 11;
+
+      el.textContent = sym;
+      el.style.cssText = `
+        position: fixed;
+        left: ${e.clientX}px;
+        top: ${e.clientY}px;
+        font-size: ${size}px;
+        font-weight: 700;
+        color: #b85c00;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s cubic-bezier(.2,.8,.4,1), opacity 0.5s ease;
+        opacity: 1;
+        user-select: none;
+      `;
+      document.body.appendChild(el);
+
+      requestAnimationFrame(() => {
+        el.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
+        el.style.opacity = '0';
+      });
+
+      setTimeout(() => el.remove(), 520);
+    }
+  });
+})();
+
+
+// Cursor trail
+(function() {
+  const TRAIL = 18;
+  const dots = [];
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .cursor-dot {
+      position: fixed;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #b85c00;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.4s ease, transform 0.1s ease;
+    }
+  `;
+  document.head.appendChild(style);
+
+  for (let i = 0; i < TRAIL; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.style.opacity = 0;
+    document.body.appendChild(dot);
+    dots.push({ el: dot, x: 0, y: 0 });
+  }
+
+  let mx = 0, my = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  let positions = Array(TRAIL).fill({ x: 0, y: 0 });
+
+  function tick() {
+    positions = [{ x: mx, y: my }, ...positions.slice(0, TRAIL - 1)];
+    dots.forEach((dot, i) => {
+      dot.el.style.left = positions[i].x + 'px';
+      dot.el.style.top  = positions[i].y + 'px';
+      dot.el.style.opacity = (1 - i / TRAIL) * 0.45;
+      dot.el.style.width  = (5 - i * 0.2) + 'px';
+      dot.el.style.height = (5 - i * 0.2) + 'px';
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
 </script>
 </body>
 </html>
