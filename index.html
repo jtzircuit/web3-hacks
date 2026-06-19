@@ -317,10 +317,9 @@ function applyFilters() {
       )
     : allIncidents.filter(i => i.date?.startsWith(activeYear));
 
-  const chronological = [...filtered].sort((a, b) => (b.date || "") > (a.date || "") ? 1 : -1);
   if (sortByAmount) filtered = [...filtered].sort((a, b) => (b.amount || 0) - (a.amount || 0));
 
-  renderStats(filtered, chronological[0]);
+  renderStats(filtered, allIncidents[0]);
   renderList(filtered);
   $("msg").textContent = filtered.length + " incidents" + (query ? ` matching "${query}"` : "");
 }
