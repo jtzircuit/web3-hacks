@@ -1,51 +1,47 @@
 # web3 hack tracker
 
-Pulls from DefiLlama, web3isgoinggreat, and Rekt.news every 30 minutes via GitHub Actions. Displays incidents sorted newest first with fuzzy deduplication across sources.
+Live dashboard of web3 hacks and exploits, auto-updated every 30 minutes. Pulls from DefiLlama, web3isgoinggreat, and SlowMist with fuzzy deduplication across sources.
+
+**[View it live →](https://jtzircuit.github.io/web3-hacks/)**
 
 ## setup
 
+Fork this repo, then:
+
 ```bash
-# 1. create repo on github (public, so Pages works on free tier)
-gh repo create web3-hack-tracker --public --clone
-cd web3-hack-tracker
-
-# 2. copy these files in
-cp /path/to/files/* .
-
-# 3. run the fetcher once locally to generate initial data.json
 npm install
-node fetch.mjs
-
-# 4. push everything
-git add .
-git commit -m "init"
+node fetch.mjs   # generate initial data.json
+git add data.json
+git commit -m "init: generate data.json"
 git push
-
-# 5. enable GitHub Pages
-# repo Settings → Pages → Deploy from branch → main → / (root)
-
-# 6. enable the workflow
-# Actions tab → "refresh hack data" → Enable workflow
 ```
+
+Then in your GitHub repo settings:
+- **Pages** → Deploy from branch → `main` → `/ (root)`
+- **Actions** tab → enable the "refresh hack data" workflow
+
+That's it. The workflow runs every 30 minutes and auto-commits updated data.
 
 ## how it works
 
-- `fetch.mjs` — Node.js script that pulls all three sources, fuzzy-dedupes, writes `data.json`
-- `.github/workflows/refresh.yml` — runs `fetch.mjs` every 30 min, commits updated `data.json`
-- `index.html` — reads `data.json`, renders the list, auto-refreshes every 5 min in browser
+| file | role |
+|------|------|
+| `fetch.mjs` | Fetches all three sources, fuzzy-dedupes, writes `data.json` |
+| `.github/workflows/refresh.yml` | Runs `fetch.mjs` every 30 min, commits the result |
+| `index.html` | Reads `data.json`, renders the list, auto-refreshes every 5 min |
 
 ## sources
 
-| source | url | type |
-|--------|-----|------|
-| DefiLlama | `https://api.llama.fi/hacks` | JSON API |
-| web3isgoinggreat | `https://www.web3isgoinggreat.com/feed.xml` | RSS |
-| Rekt.news | `https://rekt.news/feed/` | RSS |
+| source | type |
+|--------|------|
+| [DefiLlama](https://defillama.com/hacks) | JSON API |
+| [web3isgoinggreat](https://web3isgoinggreat.com) | Atom RSS |
+| [SlowMist](https://hacked.slowmist.io) | HTML scrape |
 
-## adding sources
+## adding a source
 
-Add a new `fetchRSS(url, name)` call in `fetch.mjs` and include it in the `Promise.all` in `main()`.
+Add a fetch function in `fetch.mjs` and include it in the `Promise.all` in `main()`. For RSS feeds, reuse `fetchRSS(url, name)`.
 
 ## deduplication
 
-Fuzzy match on normalized name (noise words stripped) + date window of ±3 days. Trigram similarity threshold of 60%. Best metadata record wins per cluster.
+Incidents are matched across sources by normalized name + ±3 day date window. Trigram similarity threshold of 60%. The record with the most populated fields wins per cluster; best link wins by quality score (web3isgoinggreat > SlowMist > other > DefiLlama generic page).
