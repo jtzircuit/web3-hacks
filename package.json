@@ -1,0 +1,11 @@
+{
+  "name": "web3-hack-tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "fetch": "node fetch.mjs"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  }
+}

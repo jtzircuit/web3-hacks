@@ -1,0 +1,1135 @@
+{
+  "updated": "2026-06-19T04:08:43.734Z",
+  "sources": {
+    "defillama": 113,
+    "web3isgoinggreat": 17,
+    "rekt": 0
+  },
+  "incidents": [
+    {
+      "name": "Thief steals remaining 7,200 unsold The Kiss NFTs in digital museum heist",
+      "date": "2026-06-18",
+      "amount": null,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Aztec Connect hacked for a second time in less than a week",
+      "date": "2026-06-18",
+      "amount": null,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Little Boy Plus",
+      "date": "2026-06-17",
+      "amount": 367000,
+      "chain": "BSC",
+      "vector": "Oracle Manipulation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "DIP",
+      "date": "2026-06-17",
+      "amount": 111000,
+      "chain": "BSC",
+      "vector": "Transfer/Sell Logic Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "RetoSwap",
+      "date": "2026-06-16",
+      "amount": 2.7,
+      "chain": "Monero",
+      "vector": "ACK Frontrun Attack",
+      "source": "DefiLlama · web3isgoinggreat",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Polymarket loses $700,000 to private key compromise",
+      "date": "2026-06-15",
+      "amount": null,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "SquidRouterModule, unrelated to Squid Router, exploited for $3.2 million",
+      "date": "2026-06-15",
+      "amount": 3.2,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "DxSale exploited for $7.3 million",
+      "date": "2026-06-15",
+      "amount": 7.3,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Gravity Bridge drained of $5.4 million",
+      "date": "2026-06-15",
+      "amount": 5.4,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Humanity Protocol loses $36 million to employee laptop compromise",
+      "date": "2026-06-15",
+      "amount": 36,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Raydium users lose $1.34 million after legacy smart contract exploited",
+      "date": "2026-06-15",
+      "amount": 1.34,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Thetanuts Finance",
+      "date": "2026-06-15",
+      "amount": 105000,
+      "chain": "Ethereum",
+      "vector": "Low-Supply Share Pricing Hack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Aztec Connect",
+      "date": "2026-06-14",
+      "amount": 2.1,
+      "chain": "Ethereum",
+      "vector": "ZK proof verification Exploit",
+      "source": "DefiLlama · web3isgoinggreat",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Raydium AMM",
+      "date": "2026-06-10",
+      "amount": 1.34,
+      "chain": "Solana",
+      "vector": "Fake LP Mint Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Token of Power",
+      "date": "2026-06-09",
+      "amount": 1.58,
+      "chain": "Ethereum",
+      "vector": "Malicious Governance Proposal",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "NovaBox",
+      "date": "2026-06-09",
+      "amount": 107000,
+      "chain": "Ethereum",
+      "vector": "Dividend Snapshot Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Asterix",
+      "date": "2026-06-09",
+      "amount": 40000,
+      "chain": "Ethereum",
+      "vector": "DN404 Forge Loop",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Humanity",
+      "date": "2026-06-08",
+      "amount": 32,
+      "chain": "Ethereum/BSC",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Flooring Protocol",
+      "date": "2026-06-08",
+      "amount": null,
+      "chain": "Ethereum",
+      "vector": "DN404 Forge Loop",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Ambient",
+      "date": "2026-06-07",
+      "amount": 110000,
+      "chain": "Ethereum",
+      "vector": "Flashloan Accounting Logic Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Syscoin Bridge",
+      "date": "2026-06-07",
+      "amount": 8,
+      "chain": "Syscoin",
+      "vector": "Fake Proof Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "ATM",
+      "date": "2026-06-03",
+      "amount": 243500,
+      "chain": "BSC",
+      "vector": "Tax logic Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "GPU.NET",
+      "date": "2026-06-03",
+      "amount": 10600,
+      "chain": "Ethereum",
+      "vector": "Social Engineering",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Gnosis Pay",
+      "date": "2026-06-01",
+      "amount": null,
+      "chain": "Gnosis Chain",
+      "vector": "Zodiac Delay Module Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "TSR",
+      "date": "2026-06-01",
+      "amount": 2.5,
+      "chain": "BSC",
+      "vector": "Infinite Mint and Dump",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Fluid Lending",
+      "date": "2026-05-31",
+      "amount": 215000,
+      "chain": "Ethereum",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "AROS",
+      "date": "2026-05-31",
+      "amount": 295000,
+      "chain": "BSC",
+      "vector": "Flashloan Price Manipulation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Gravity Bridge",
+      "date": "2026-05-30",
+      "amount": 5.4,
+      "chain": "Ethereum",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "AFI Protocol",
+      "date": "2026-05-30",
+      "amount": 480000,
+      "chain": "Ethereum",
+      "vector": "afiUSD Vault Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Alephium Bridge",
+      "date": "2026-05-30",
+      "amount": 815000,
+      "chain": "Ethereum",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "DxSale",
+      "date": "2026-05-28",
+      "amount": 7.3,
+      "chain": "BSC",
+      "vector": "Ownership Override Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Stake DAO",
+      "date": "2026-05-27",
+      "amount": 91000,
+      "chain": "Arbitrum",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Bitmor",
+      "date": "2026-05-25",
+      "amount": 10000,
+      "chain": "Base",
+      "vector": "Acces Control Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "New Market Trading",
+      "date": "2026-05-25",
+      "amount": 3.98,
+      "chain": "Ethereum/Base/Arbitrum",
+      "vector": "Acces Control Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "WUSD.fi/Glove",
+      "date": "2026-05-25",
+      "amount": 200000,
+      "chain": "Ethereum",
+      "vector": "Sybil Abuse",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Fractal Protocol",
+      "date": "2026-05-24",
+      "amount": 13700,
+      "chain": "Arbitrum",
+      "vector": "Flashloan Price Manipulation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Mure",
+      "date": "2026-05-23",
+      "amount": 11700,
+      "chain": "Ethereum",
+      "vector": "Acces Control Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "StablR",
+      "date": "2026-05-23",
+      "amount": 2.8,
+      "chain": "Ethereum",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Polymarket",
+      "date": "2026-05-22",
+      "amount": 700000,
+      "chain": "Polygon",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "RetoSwap",
+      "date": "2026-05-20",
+      "amount": 2.7,
+      "chain": "Monero",
+      "vector": "ACK Message Frontrun Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "MAP Protocol",
+      "date": "2026-05-20",
+      "amount": 110000,
+      "chain": "Ethereum/BSC",
+      "vector": "Infinite Mint and Dump",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Bankr",
+      "date": "2026-05-19",
+      "amount": 170000,
+      "chain": "Base",
+      "vector": "Compromised Session Keys",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "HermesVault",
+      "date": "2026-05-19",
+      "amount": 30000,
+      "chain": "Algorand",
+      "vector": "Rekeying Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Verus bridge hacked for $11.6 million",
+      "date": "2026-05-18",
+      "amount": 11.6,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Echo Bridge",
+      "date": "2026-05-18",
+      "amount": 821000,
+      "chain": "Monad",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Verus-Ethereum Bridge",
+      "date": "2026-05-17",
+      "amount": 11.5,
+      "chain": "Ethereum",
+      "vector": "Bridge Verification Bypass",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "SEA Token",
+      "date": "2026-05-17",
+      "amount": 153000,
+      "chain": "Arbitrum",
+      "vector": "Flashloan Price Manipulation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Adshares",
+      "date": "2026-05-16",
+      "amount": 628000,
+      "chain": "Ethereum",
+      "vector": "Bridge Verification Bypass",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "THORchain exploited for $10.8 million",
+      "date": "2026-05-15",
+      "amount": 10.8,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Thorchain DEX",
+      "date": "2026-05-15",
+      "amount": 10,
+      "chain": "Bitcoin/Ethereum/Base/BSC",
+      "vector": "Vault Churn Address Poisoning",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "TAC bridge exploited for $2.8 million",
+      "date": "2026-05-14",
+      "amount": 2.8,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Transit Finance",
+      "date": "2026-05-13",
+      "amount": 1.88,
+      "chain": "Tron",
+      "vector": "Deprecated Smart Contract Exploit",
+      "source": "DefiLlama · web3isgoinggreat",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "SQ Protocol",
+      "date": "2026-05-12",
+      "amount": 346000,
+      "chain": "BSC",
+      "vector": "Acces Control Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Aurellion",
+      "date": "2026-05-12",
+      "amount": 456000,
+      "chain": "Arbitrum",
+      "vector": "Uninitialized Proxy Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "INK Finance",
+      "date": "2026-05-11",
+      "amount": 140000,
+      "chain": "Polygon",
+      "vector": "Whitelisted Address Impersonation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Renegade",
+      "date": "2026-05-10",
+      "amount": 209000,
+      "chain": "Arbitrum",
+      "vector": "Unprotected Initializer Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "TrustedVolumes",
+      "date": "2026-05-07",
+      "amount": 6.7,
+      "chain": "Ethereum",
+      "vector": "Forged RFQ Orders",
+      "source": "DefiLlama · web3isgoinggreat",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Ekubo",
+      "date": "2026-05-05",
+      "amount": 1.4,
+      "chain": "Ethereum",
+      "vector": "Improper Access Control Exploit",
+      "source": "DefiLlama · web3isgoinggreat",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "SmartCredit",
+      "date": "2026-05-04",
+      "amount": 72000,
+      "chain": "Ethereum",
+      "vector": "Flashloan Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Bisq",
+      "date": "2026-05-01",
+      "amount": 858000,
+      "chain": "Bitcoin",
+      "vector": "Fake Bisq V1 Client Hack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Sharwa.Finance",
+      "date": "2026-05-01",
+      "amount": 32850,
+      "chain": "Arbitrum",
+      "vector": "Oracle Price Manipulation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Wasabi Protocol exploited for more than $5 million",
+      "date": "2026-04-30",
+      "amount": 5,
+      "chain": "—",
+      "vector": "—",
+      "source": "web3isgoinggreat",
+      "link": ""
+    },
+    {
+      "name": "Wasabi Perps",
+      "date": "2026-04-30",
+      "amount": 5.5,
+      "chain": "Ethereum/Base/Berachain/Blast",
+      "vector": "Admin Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Syndicate",
+      "date": "2026-04-29",
+      "amount": 380000,
+      "chain": "Base",
+      "vector": "Commons Bridge Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Sweat Foundation",
+      "date": "2026-04-29",
+      "amount": 3.5,
+      "chain": "Near",
+      "vector": "Refund_first & Refund_second Logic Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Aftermath Perps",
+      "date": "2026-04-29",
+      "amount": 1.14,
+      "chain": "Sui",
+      "vector": "Fee-Accounting Logic Flaw",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "JUDAO",
+      "date": "2026-04-28",
+      "amount": 228000,
+      "chain": "BSC",
+      "vector": "Flashloan Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Quant",
+      "date": "2026-04-28",
+      "amount": 138000,
+      "chain": "Ethereum",
+      "vector": "Access Control Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "ZetaChain",
+      "date": "2026-04-27",
+      "amount": 300000,
+      "chain": "Ethereum/Base/Polygon/Arbitrum/Avalanche/BSC",
+      "vector": "GatewayEVM Contracts Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Singularity Finance",
+      "date": "2026-04-27",
+      "amount": 413000,
+      "chain": "Base",
+      "vector": "Oracle Misconfiguration Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Litecoin",
+      "date": "2026-04-26",
+      "amount": null,
+      "chain": "Litecoin",
+      "vector": "Zero-Day Bug & DDoS Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Scallop Lend",
+      "date": "2026-04-26",
+      "amount": 150000,
+      "chain": "Sui",
+      "vector": "Deprecated V2 Rewards Contract",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Purrlend",
+      "date": "2026-04-25",
+      "amount": 1.5,
+      "chain": "MegaETH/Hyperliquid L1",
+      "vector": "Fake Bridge Address",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Giddy",
+      "date": "2026-04-23",
+      "amount": 1.3,
+      "chain": "Ethereum",
+      "vector": "Incomplete EIP-712 Signature Coverage",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Kipseli",
+      "date": "2026-04-22",
+      "amount": 80000,
+      "chain": "Base",
+      "vector": "Flawed Quoting Logic",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Volo Vault",
+      "date": "2026-04-21",
+      "amount": 3.5,
+      "chain": "Sui",
+      "vector": "Admin Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Juicebox V3",
+      "date": "2026-04-20",
+      "amount": 52000,
+      "chain": "Ethereum",
+      "vector": "borrowFrom Spoof Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Thetanuts Finance",
+      "date": "2026-04-20",
+      "amount": 50000,
+      "chain": "Ethereum",
+      "vector": "First Depositor Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Kelp",
+      "date": "2026-04-18",
+      "amount": 293,
+      "chain": "Ethereum/Arbitrum",
+      "vector": "LayerZero OFT bridge exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Rhea Lend",
+      "date": "2026-04-16",
+      "amount": 18.4,
+      "chain": "Near",
+      "vector": "Fake Collateral Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Grinex",
+      "date": "2026-04-16",
+      "amount": 15,
+      "chain": "Tron/Ethereum",
+      "vector": "Hot wallet hack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Zerion Wallet",
+      "date": "2026-04-14",
+      "amount": 100000,
+      "chain": "—",
+      "vector": "Hot Wallet Compromise via Social Engineering",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Dango",
+      "date": "2026-04-13",
+      "amount": 410000,
+      "chain": "Dango",
+      "vector": "Donate Negative Amounts Hack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "MONA",
+      "date": "2026-04-13",
+      "amount": 60950,
+      "chain": "BSC",
+      "vector": "BurnAddress Accounting Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Hyperbridge",
+      "date": "2026-04-12",
+      "amount": 2.5,
+      "chain": "Ethereum/Base/BSC/Arbitrum",
+      "vector": "Fake State Proof",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "SubQuery Network",
+      "date": "2026-04-12",
+      "amount": 60000,
+      "chain": "Base",
+      "vector": "Acces Control Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Aethir",
+      "date": "2026-04-09",
+      "amount": 423000,
+      "chain": "BSC",
+      "vector": "Acces Control Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "BSC TMM/USDT",
+      "date": "2026-04-04",
+      "amount": 1.665,
+      "chain": "BSC",
+      "vector": "Reserve Manipulation Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Drift Trade",
+      "date": "2026-04-01",
+      "amount": 285,
+      "chain": "Solana",
+      "vector": "Compromised Admin + Fake Token Price Manipulation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "LML/USDT staking protocol",
+      "date": "2026-03-31",
+      "amount": 950000,
+      "chain": "BSC",
+      "vector": "Price Manipulation Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "GoonFi",
+      "date": "2026-03-28",
+      "amount": 254000,
+      "chain": "Solana",
+      "vector": "Mispricing arbitrage",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Cyrus Finance",
+      "date": "2026-03-22",
+      "amount": 5,
+      "chain": "BSC",
+      "vector": "Flashloan Pool Shares Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Resolv",
+      "date": "2026-03-21",
+      "amount": 24.5,
+      "chain": "Ethereum",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Neutrl",
+      "date": "2026-03-18",
+      "amount": null,
+      "chain": "Ethereum",
+      "vector": "DNS Hijacking Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "dTRINITY dLEND",
+      "date": "2026-03-17",
+      "amount": 257000,
+      "chain": "Ethereum",
+      "vector": "Deposit Inflation Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Venus Core Pool",
+      "date": "2026-03-15",
+      "amount": 3.7,
+      "chain": "BSC",
+      "vector": "Donation Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Goose Finance",
+      "date": "2026-03-14",
+      "amount": 8435,
+      "chain": "BSC",
+      "vector": "Share Accounting Flaw",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Stake DAO",
+      "date": "2026-03-12",
+      "amount": 176000,
+      "chain": "Arbitrum/Base",
+      "vector": "Oracle Message Spoofing",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Aave V3",
+      "date": "2026-03-12",
+      "amount": 862000,
+      "chain": "Ethereum",
+      "vector": "CAPO Oracle Misconfiguration",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Gondi V3",
+      "date": "2026-03-09",
+      "amount": 230000,
+      "chain": "Ethereum",
+      "vector": "PurchaseBundler Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Molt EVM",
+      "date": "2026-03-07",
+      "amount": 127000,
+      "chain": "Base",
+      "vector": "onlySpawnerToken Modifier Hack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "SolvBTC",
+      "date": "2026-03-06",
+      "amount": 2.7,
+      "chain": "Ethereum",
+      "vector": "Mint Reserves Logic Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "FOOM Cash",
+      "date": "2026-03-02",
+      "amount": 2.26,
+      "chain": "Ethereum/Base",
+      "vector": "Fake Proof Spam",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Curve LlamaLend",
+      "date": "2026-03-02",
+      "amount": 240000,
+      "chain": "Ethereum",
+      "vector": "Donation Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Wise Lending V2",
+      "date": "2026-02-28",
+      "amount": 66000,
+      "chain": "Arbitrum/Ethereum",
+      "vector": "Flashloan Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Ploutos Money",
+      "date": "2026-02-26",
+      "amount": 390000,
+      "chain": "Ethereum",
+      "vector": "Misconfigured Oracle Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "DGLD",
+      "date": "2026-02-23",
+      "amount": null,
+      "chain": "Base",
+      "vector": "Infinite Mint and Dump",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Blend Pools V2",
+      "date": "2026-02-22",
+      "amount": 10.97,
+      "chain": "Stellar",
+      "vector": "Price Oracle Manipulation",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Veil Cash",
+      "date": "2026-02-21",
+      "amount": 5000,
+      "chain": "Base",
+      "vector": "misconfigured Groth16 verifier",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "IoTeX",
+      "date": "2026-02-21",
+      "amount": 8,
+      "chain": "Ethereum",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Moonwell Lending",
+      "date": "2026-02-15",
+      "amount": 1.78,
+      "chain": "Base",
+      "vector": "cbETH Collateral Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "CrossCurve",
+      "date": "2026-02-01",
+      "amount": 3,
+      "chain": "—",
+      "vector": "Spoofed Cross-Chain Messages",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Step Finance",
+      "date": "2026-01-31",
+      "amount": 40,
+      "chain": "Solana",
+      "vector": "Private Key Compromised",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Revert Lend",
+      "date": "2026-01-29",
+      "amount": 50000,
+      "chain": "Base",
+      "vector": "Staked Collateral Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Aperture LM",
+      "date": "2026-01-25",
+      "amount": 3.2,
+      "chain": "Ethereum/Base/BSC",
+      "vector": "—",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Matcha",
+      "date": "2026-01-25",
+      "amount": 13.43,
+      "chain": "Base/Ethereum",
+      "vector": "Unlimited Approval Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Saga",
+      "date": "2026-01-21",
+      "amount": 7,
+      "chain": "Saga",
+      "vector": "Infinite Mint and Dump",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Makina",
+      "date": "2026-01-19",
+      "amount": 4.2,
+      "chain": "Ethereum",
+      "vector": "Flashloan Price Oracle Attack",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Meteora DAMM V2",
+      "date": "2026-01-17",
+      "amount": 1.5,
+      "chain": "Solana",
+      "vector": "Fake OTC Deal",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "YO Protocol",
+      "date": "2026-01-13",
+      "amount": 3.73,
+      "chain": "Ethereum",
+      "vector": "Slippage Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Truebit",
+      "date": "2026-01-08",
+      "amount": 26.4,
+      "chain": "Ethereum",
+      "vector": "Bonding Curve Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Polycule",
+      "date": "2026-01-07",
+      "amount": 230000,
+      "chain": "Polygon",
+      "vector": "—",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "Fusion by IPOR",
+      "date": "2026-01-06",
+      "amount": 336000,
+      "chain": "Arbitrum",
+      "vector": "EIP-7702 Delegation Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "TMX TRIBE",
+      "date": "2026-01-05",
+      "amount": 1.4,
+      "chain": "Arbitrum",
+      "vector": "Mint & Stake Loop Exploit",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    },
+    {
+      "name": "PRXVT",
+      "date": "2026-01-01",
+      "amount": 97000,
+      "chain": "Base",
+      "vector": "Sybil Attack with CREATE2 Addresses",
+      "source": "DefiLlama",
+      "link": "https://defillama.com/hacks"
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>web3 hack tracker</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f9f9f8;
+    --surface: #ffffff;
+    --surface2: #f2f2f0;
+    --border: rgba(0,0,0,0.09);
+    --border2: rgba(0,0,0,0.18);
+    --text: #1a1a18;
+    --text2: #6b6b68;
+    --text3: #9b9b98;
+    --red: #c0392b;
+    --red-bg: #fef2f2;
+    --red-text: #991b1b;
+    --blue-bg: #eff6ff;
+    --blue-text: #1e40af;
+    --green: #15803d;
+    --green-bg: #f0fdf4;
+    --amber-bg: #fffbeb;
+    --amber-text: #92400e;
+    --amber-border: rgba(217,119,6,0.25);
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111110;
+      --surface: #1c1c1a;
+      --surface2: #252523;
+      --border: rgba(255,255,255,0.09);
+      --border2: rgba(255,255,255,0.18);
+      --text: #f0f0ee;
+      --text2: #9b9b98;
+      --text3: #6b6b68;
+      --red: #f87171;
+      --red-bg: #2d1515;
+      --red-text: #fca5a5;
+      --blue-bg: #1e2d40;
+      --blue-text: #93c5fd;
+      --green: #4ade80;
+      --green-bg: #14291f;
+      --amber-bg: #292010;
+      --amber-text: #fcd34d;
+      --amber-border: rgba(251,191,36,0.25);
+    }
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:translateY(0)} }
+
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+
+  header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 0.5px solid var(--border2); }
+  .title-group { display: flex; align-items: center; gap: 10px; }
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+  h1 { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+  .sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: 8px; }
+  .updated { font-size: 11px; color: var(--text3); }
+
+  button { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; padding: 6px 12px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); background: var(--surface); color: var(--text); cursor: pointer; transition: background 0.15s; font-family: inherit; }
+  button:hover { background: var(--surface2); }
+  button:active { transform: scale(0.98); }
+  button:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 1.25rem; }
+  .stat { background: var(--surface2); border-radius: var(--radius-sm); padding: 0.6rem 0.875rem; }
+  .stat-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+  .stat-val { font-size: 18px; font-weight: 600; color: var(--text); line-height: 1; }
+  .stat-val.red { color: var(--red); }
+  .stat-val.sm { font-size: 12px; font-weight: 500; padding-top: 2px; }
+
+  .sources { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+  .src { display: flex; align-items: center; gap: 4px; font-size: 11px; padding: 3px 9px; border-radius: 99px; border: 0.5px solid var(--border2); color: var(--text3); }
+  .src.ok { border-color: rgba(34,197,94,0.4); color: var(--green); background: var(--green-bg); }
+  .src.zero { border-color: rgba(239,68,68,0.35); color: var(--red); background: var(--red-bg); }
+
+  .list { display: flex; flex-direction: column; gap: 5px; }
+
+  a.card { display: grid; grid-template-columns: 1fr auto; gap: 2px 14px; background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem; cursor: pointer; text-decoration: none; color: inherit; transition: border-color 0.12s, background 0.12s; animation: fadeIn 0.18s ease both; }
+  a.card:hover { border-color: var(--border2); background: var(--surface2); }
+  a.card.fresh { border-color: var(--amber-border); }
+  a.card.fresh:hover { background: var(--amber-bg); }
+
+  .inc-name { font-size: 13px; font-weight: 500; line-height: 1.35; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .inc-meta { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; margin-top: 5px; }
+  .badge { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 99px; line-height: 1.4; white-space: nowrap; }
+  .b-chain { background: var(--surface2); color: var(--text2); border: 0.5px solid var(--border2); }
+  .b-vec { background: var(--blue-bg); color: var(--blue-text); }
+  .b-src { background: var(--surface2); color: var(--text3); border: 0.5px solid var(--border); }
+  .b-new { background: var(--amber-bg); color: var(--amber-text); }
+
+  .inc-right { text-align: right; }
+  .inc-amt { font-size: 13px; font-weight: 600; color: var(--red); white-space: nowrap; }
+  .inc-date { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+  .ext { opacity: 0; vertical-align: middle; margin-left: 2px; transition: opacity 0.12s; }
+  a.card:hover .ext { opacity: 0.35; }
+
+  .status { display: flex; justify-content: space-between; font-size: 11px; color: var(--text3); padding-top: 0.75rem; }
+  .empty { padding: 3rem 0; text-align: center; font-size: 13px; color: var(--text3); }
+
+  @media (max-width: 480px) {
+    .stats { grid-template-columns: repeat(2,1fr); }
+    header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .header-right { width: 100%; justify-content: space-between; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="title-group">
+      <span class="live-dot"></span>
+      <div>
+        <h1>web3 hack tracker</h1>
+        <p class="sub">DefiLlama · web3isgoinggreat · Rekt.news — click any row to open source</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="updated" id="upd"></span>
+      <button id="btn" onclick="load()">
+        <svg id="ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        refresh
+      </button>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-label">incidents</div><div class="stat-val" id="sN">—</div></div>
+    <div class="stat"><div class="stat-label">total lost</div><div class="stat-val red" id="sT">—</div></div>
+    <div class="stat"><div class="stat-label">largest</div><div class="stat-val red" id="sL">—</div></div>
+    <div class="stat"><div class="stat-label">most recent</div><div class="stat-val sm" id="sR">—</div></div>
+  </div>
+
+  <div class="sources" id="srcs"></div>
+  <div class="list" id="list"><div class="empty">loading…</div></div>
+  <div class="status"><span id="msg"></span><span id="age"></span></div>
+
+</div>
+<script>
+const $ = id => document.getElementById(id);
+let prevKeys = new Set();
+let spinning = false;
+
+function fmt(m) {
+  if (m == null) return "unknown";
+  if (m >= 1000) return "$" + (m/1000).toFixed(1) + "B";
+  if (m >= 1) return "$" + m.toFixed(1) + "M";
+  return "$" + Math.round(m*1000) + "K";
+}
+
+function ago(d) {
+  if (!d) return "";
+  const dt = new Date(d.includes("T") ? d : d + "T00:00:00Z");
+  const h = Math.floor((Date.now() - dt) / 3.6e6);
+  if (h < 1) return "just now";
+  if (h < 24) return h + "h ago";
+  if (h < 48) return "yesterday";
+  return dt.toLocaleDateString("en-US", {month:"short", day:"numeric", timeZone:"UTC"});
+}
+
+function incKey(i) { return (i.name + i.date).toLowerCase().replace(/\W/g,""); }
+
+function spin(on) {
+  spinning = on;
+  $("ico").style.animation = on ? "spin 0.8s linear infinite" : "";
+  $("btn").disabled = on;
+}
+
+function renderSources(sources) {
+  if (!sources) return;
+  $("srcs").innerHTML = Object.entries({
+    "DefiLlama": sources.defillama,
+    "web3isgoinggreat": sources.web3isgoinggreat,
+    "Rekt.news": sources.rekt,
+  }).map(([name, count]) =>
+    `<span class="src ${count > 0 ? "ok" : "zero"}">${count > 0 ? "✓" : "✗"} ${name} ${count > 0 ? "("+count+")" : "(0)"}</span>`
+  ).join("");
+}
+
+function renderStats(incidents) {
+  const w = incidents.filter(i => i.amount);
+  const total = w.reduce((s,i) => s + i.amount, 0);
+  const max = w.reduce((mx,i) => i.amount > (mx?.amount||0) ? i : mx, null);
+  $("sN").textContent = incidents.length;
+  $("sT").textContent = fmt(total);
+  $("sL").textContent = max ? fmt(max.amount) : "—";
+  const r = incidents[0];
+  $("sR").textContent = r ? r.name.slice(0,22) + (r.name.length>22?"…":"") : "—";
+}
+
+function renderList(incidents) {
+  const newKeys = new Set(incidents.map(incKey).filter(k => !prevKeys.has(k)));
+  incidents.forEach(i => prevKeys.add(incKey(i)));
+
+  if (!incidents.length) {
+    $("list").innerHTML = '<div class="empty">no incidents found — check that data.json exists and the workflow has run</div>';
+    return;
+  }
+
+  $("list").innerHTML = incidents.map((inc, i) => {
+    const isNew = newKeys.has(incKey(inc));
+    return `<a href="${inc.link || "#"}" target="_blank" rel="noopener"
+      class="card${isNew ? " fresh" : ""}"
+      style="animation-delay:${Math.min(i*0.02, 0.35)}s">
+      <div>
+        <div class="inc-name">
+          ${inc.name}
+          ${isNew ? '<span class="badge b-new">new</span>' : ""}
+          <svg class="ext" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="inc-meta">
+          ${inc.chain && inc.chain!=="—" ? `<span class="badge b-chain">${inc.chain}</span>` : ""}
+          ${inc.vector && inc.vector!=="—" ? `<span class="badge b-vec">${inc.vector}</span>` : ""}
+          <span class="badge b-src">${inc.source}</span>
+        </div>
+      </div>
+      <div class="inc-right">
+        <div class="inc-amt">${fmt(inc.amount)}</div>
+        <div class="inc-date">${ago(inc.date)}</div>
+      </div>
+    </a>`;
+  }).join("");
+}
+
+async function load() {
+  if (spinning) return;
+  spin(true);
+  $("msg").textContent = "refreshing…";
+  try {
+    const r = await fetch("data.json?t=" + Date.now());
+    if (!r.ok) throw new Error("data.json not found — has the workflow run yet?");
+    const data = await r.json();
+    renderSources(data.sources);
+    renderStats(data.incidents || []);
+    renderList(data.incidents || []);
+    const fetched = new Date(data.updated);
+    $("upd").textContent = "data from " + fetched.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
+    const minsAgo = Math.round((Date.now() - fetched) / 60000);
+    $("msg").textContent = (data.incidents||[]).length + " incidents";
+    $("age").textContent = "fetched " + (minsAgo < 1 ? "just now" : minsAgo + "m ago");
+  } catch(e) {
+    $("list").innerHTML = `<div class="empty">${e.message}</div>`;
+    $("msg").textContent = "error loading data.json";
+  }
+  spin(false);
+}
+
+load();
+setInterval(load, 5 * 60 * 1000);
+</script>
+</body>
+</html>
