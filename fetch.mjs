@@ -272,8 +272,10 @@ async function fetchSlowMist() {
 
 function loadExistingLinks() {
   try {
-    const raw = readFileSync("data.js", "utf8").replace(/^window\.__DATA__\s*=\s*/, "").replace(/;?\s*$/, "");
-    const data = JSON.parse(raw);
+    const html = readFileSync("index.html", "utf8");
+    const match = html.match(/window\.__DATA__\s*=\s*(\{[\s\S]*?\});\s*<\/script>/);
+    if (!match) return new Map();
+    const data = JSON.parse(match[1]);
     const map = new Map();
     for (const inc of data.incidents || []) {
       if (inc.link && inc.link !== "https://defillama.com/hacks") {
@@ -320,8 +322,13 @@ async function main() {
     incidents,
   };
 
-  writeFileSync("data.js", `window.__DATA__ = ${JSON.stringify(output, null, 2)};\n`);
-  console.log(`\nWrote data.js with ${incidents.length} incidents`);
+  const html = readFileSync("index.html", "utf8");
+  const injected = html.replace(
+    /<script>window\.__DATA__[^<]*<\/script>/,
+    `<script>window.__DATA__ = ${JSON.stringify(output)};</script>`
+  );
+  writeFileSync("index.html", injected);
+  console.log(`\nWrote index.html with ${incidents.length} incidents`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
