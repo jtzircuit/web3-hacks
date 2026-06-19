@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { parseStringPromise } from "xml2js";
 
 // ---------------------------------------------------------------------------
@@ -272,9 +272,7 @@ async function fetchSlowMist() {
 
 function loadExistingLinks() {
   try {
-    const raw = existsSync("data.js")
-      ? readFileSync("data.js", "utf8").replace(/^window\.__DATA__\s*=\s*/, "").replace(/;?\s*$/, "")
-      : readFileSync("data.json", "utf8");
+    const raw = readFileSync("data.js", "utf8").replace(/^window\.__DATA__\s*=\s*/, "").replace(/;?\s*$/, "");
     const data = JSON.parse(raw);
     const map = new Map();
     for (const inc of data.incidents || []) {
