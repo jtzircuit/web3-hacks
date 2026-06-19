@@ -287,6 +287,25 @@ function loadExistingLinks() {
   } catch { return new Map(); }
 }
 
+// Manual field corrections for incidents where a source reports bad data.
+const MANUAL_CORRECTIONS = [
+  // DefiLlama reports 915 (millions) instead of 0.915 (~$915K per SlowMist)
+  { name: "Haedal Vault", date: "2026-06-09", amount: 0.915 },
+];
+
+function applyManualCorrections(incidents) {
+  const byKey = new Map(incidents.map(i => [`${i.name}|${i.date}`, i]));
+  for (const fix of MANUAL_CORRECTIONS) {
+    const inc = byKey.get(`${fix.name}|${fix.date}`);
+    if (!inc) continue;
+    if (fix.amount  !== undefined) inc.amount  = fix.amount;
+    if (fix.chain   !== undefined) inc.chain   = fix.chain;
+    if (fix.vector  !== undefined) inc.vector  = fix.vector;
+    if (fix.link    !== undefined) inc.link    = fix.link;
+  }
+  return incidents;
+}
+
 // Manual merge overrides for incidents that escape fuzzy dedup due to large
 // date gaps between sources. Each entry maps a duplicate (name+date from one
 // source) onto a canonical (name+date from another). The duplicate is dropped
@@ -335,7 +354,7 @@ async function main() {
 
   const all = [...llamaRows, ...w3iggRows, ...slowmistRows];
   console.log(`\nTotal before dedup: ${all.length}`);
-  const incidents = applyManualMerges(mergeAndDedupe(all));
+  const incidents = applyManualCorrections(applyManualMerges(mergeAndDedupe(all)));
   console.log(`Total after dedup:  ${incidents.length}`);
 
   // Restore backfilled links that the live sources don't carry
