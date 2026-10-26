@@ -471,6 +471,175 @@ load();
   tick();
 })();
 
+
+// WebGL rotating sphere
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55;';
+  document.body.insertBefore(canvas, document.body.firstChild);
+
+  // Make content sit above canvas
+  const wrap = document.querySelector('.wrap');
+  if (wrap) wrap.style.position = 'relative';
+
+  const gl = canvas.getContext('webgl');
+  if (!gl) return;
+
+  // Shaders
+  const VS = `
+    attribute vec3 aPos;
+    attribute float aSize;
+    uniform mat4 uMVP;
+    uniform vec2 uMouse;   // NDC -1..1
+    uniform float uAspect;
+    varying float vAlpha;
+    void main() {
+      vec4 clip = uMVP * vec4(aPos, 1.0);
+      vec2 ndc = clip.xy / clip.w;
+      // repel from mouse
+      vec2 toMouse = ndc - uMouse;
+      toMouse.x *= uAspect;
+      float d = length(toMouse);
+      float repel = smoothstep(0.35, 0.0, d) * 0.18;
+      vec2 dir = d > 0.001 ? normalize(toMouse) : vec2(0.0);
+      ndc -= dir * repel;
+      gl_Position = vec4(ndc * clip.w, clip.z, clip.w);
+      gl_PointSize = aSize * (1.0 + repel * 4.0);
+      vAlpha = 0.5 + 0.5 * (aPos.z + 1.0) * 0.5;
+    }
+  `;
+  const FS = `
+    precision mediump float;
+    varying float vAlpha;
+    void main() {
+      vec2 c = gl_PointCoord - 0.5;
+      if (dot(c,c) > 0.25) discard;
+      gl_FragColor = vec4(0.722, 0.361, 0.0, vAlpha * 0.7);
+    }
+  `;
+
+  function compile(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  // Generate sphere points via Fibonacci lattice
+  const N = 800;
+  const positions = new Float32Array(N * 3);
+  const sizes     = new Float32Array(N);
+  const golden    = Math.PI * (3 - Math.sqrt(5));
+  for (let i = 0; i < N; i++) {
+    const y   = 1 - (i / (N - 1)) * 2;
+    const r   = Math.sqrt(1 - y * y);
+    const phi = golden * i;
+    positions[i*3]   = Math.cos(phi) * r;
+    positions[i*3+1] = y;
+    positions[i*3+2] = Math.sin(phi) * r;
+    sizes[i] = 1.5 + Math.random() * 1.5;
+  }
+
+  const posBuf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+  const aPos = gl.getAttribLocation(prog, 'aPos');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, 0, 0);
+
+  const sizeBuf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, sizeBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, sizes, gl.STATIC_DRAW);
+  const aSize = gl.getAttribLocation(prog, 'aSize');
+  gl.enableVertexAttribArray(aSize);
+  gl.vertexAttribPointer(aSize, 1, gl.FLOAT, false, 0, 0);
+
+  const uMVP    = gl.getUniformLocation(prog, 'uMVP');
+  const uMouse  = gl.getUniformLocation(prog, 'uMouse');
+  const uAspect = gl.getUniformLocation(prog, 'uAspect');
+
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+  let mx = 0, my = 0;
+  window.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth)  *  2 - 1;
+    my = (e.clientY / window.innerHeight) * -2 + 1;
+  });
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Simple mat4 helpers
+  function mat4() { return new Float32Array(16); }
+  function identity(m) { m.fill(0); m[0]=m[5]=m[10]=m[15]=1; return m; }
+  function rotY(m, a) {
+    const c=Math.cos(a), s=Math.sin(a), o=mat4(); identity(o);
+    o[0]=c; o[2]=s; o[8]=-s; o[10]=c;
+    return mul(mat4(), m, o);
+  }
+  function rotX(m, a) {
+    const c=Math.cos(a), s=Math.sin(a), o=mat4(); identity(o);
+    o[5]=c; o[6]=-s; o[9]=s; o[10]=c;
+    return mul(mat4(), m, o);
+  }
+  function mul(out, a, b) {
+    for (let i=0;i<4;i++) for (let j=0;j<4;j++) {
+      out[j*4+i]=0;
+      for (let k=0;k<4;k++) out[j*4+i]+=a[k*4+i]*b[j*4+k];
+    }
+    return out;
+  }
+  function perspective(fov, asp, near, far) {
+    const m=mat4(), f=1/Math.tan(fov/2);
+    m[0]=f/asp; m[5]=f;
+    m[10]=(far+near)/(near-far); m[11]=-1;
+    m[14]=(2*far*near)/(near-far);
+    return m;
+  }
+  function translate(m, tx, ty, tz) {
+    const t=mat4(); identity(t);
+    t[12]=tx; t[13]=ty; t[14]=tz;
+    return mul(mat4(), t, m);
+  }
+  function scale(m, s) {
+    const t=mat4(); identity(t);
+    t[0]=t[5]=t[10]=s;
+    return mul(mat4(), t, m);
+  }
+
+  let t = 0;
+  function frame() {
+    t += 0.004;
+    gl.clearColor(0,0,0,0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    const asp = canvas.width / canvas.height;
+    let mvp = perspective(0.9, asp, 0.1, 100);
+    mvp = translate(mvp, 0, 0, -2.6);
+    mvp = rotY(mvp, t);
+    mvp = rotX(mvp, t * 0.4);
+    mvp = scale(mvp, 0.9);
+
+    gl.uniformMatrix4fv(uMVP, false, mvp);
+    gl.uniform2f(uMouse, mx, my);
+    gl.uniform1f(uAspect, asp);
+    gl.drawArrays(gl.POINTS, 0, N);
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
 </script>
 </body>
 </html>
